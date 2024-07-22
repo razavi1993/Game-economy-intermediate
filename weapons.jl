@@ -159,7 +159,7 @@ end
 mutable struct Adventurer <: Player
 	health::Int
 	weapon::Weapon
-	heel::Int
+	heal::Int
 	policy::Policy
 	loot_box::AdventurerLootBox
 end
@@ -242,7 +242,7 @@ function defeat_enemy(player::Adventurer, time::Time, enemy_name::String)
 					enemy.health -= min(player.weapon.attack, enemy.health)
 				else
 					if player.health < MAX_HEALTH
-						player.health += min.(player.heel, MAX_HEALTH - player.health)
+						player.health += min.(player.heal, MAX_HEALTH - player.health)
 					end
 				end
 			end
